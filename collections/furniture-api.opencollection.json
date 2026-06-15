@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Furniture API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://furniture-api.fly.dev/v1/products",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Filter products by category."
+              },
+              {
+                "name": "minPrice",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price filter."
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price filter."
+              },
+              {
+                "name": "woodType",
+                "value": "",
+                "type": "query",
+                "description": "Filter products by wood type."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of items returned per page."
+              }
+            ]
+          },
+          "docs": "Retrieves a paginated list of furniture products with optional filtering by category, price range, wood type, and other product attributes."
+        },
+        {
+          "info": {
+            "name": "Get product by SKU",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://furniture-api.fly.dev/v1/products/:sku",
+            "params": [
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path",
+                "description": "The unique stock keeping unit (SKU) for the product."
+              }
+            ]
+          },
+          "docs": "Retrieves the full details for a single product identified by its SKU."
+        },
+        {
+          "info": {
+            "name": "Update stock levels",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://furniture-api.fly.dev/v1/products/stock",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates inventory levels across multiple products in a single request. Each entry identifies a product by SKU and provides the new stock quantity to set."
+        },
+        {
+          "info": {
+            "name": "Toggle featured status",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://furniture-api.fly.dev/v1/products/:sku/featured",
+            "params": [
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path",
+                "description": "The SKU of the product to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Toggles whether a specific product appears in featured listings."
+        },
+        {
+          "info": {
+            "name": "Apply product discount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://furniture-api.fly.dev/v1/products/:sku/discount",
+            "params": [
+              {
+                "name": "sku",
+                "value": "",
+                "type": "path",
+                "description": "The SKU of the product to discount."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies a discount to a product, expressed either as a percentage off or as a direct adjusted price."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
