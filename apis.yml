@@ -38,6 +38,8 @@ apis:
       furniture products and designs into their applications. This API provides a wide range of data related to
       furniture, such as product descriptions, images, prices, dimensions, and availability.
 common:
+  - type: AgenticAccess
+    url: agentic-access/furniture-api-agentic-access.yml
   - type: Website
     url: https://furniture-api.fly.dev/
   - type: Documentation
