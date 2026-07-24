@@ -1,65 +1,58 @@
 openapi: 3.0.3
 info:
-  title: Furniture API
-  description: >-
-    The Furniture API is a software interface that allows developers to access
-    and integrate information about furniture products and designs into their
-    applications. It provides product listings with filtering, product detail
-    lookup by SKU, stock management, featured product flags, and discount
-    application across an inventory of furniture items.
+  title: Furniture Products API
+  description: The Furniture API is a software interface that allows developers to access and integrate information about furniture products and designs into their applications. It provides product listings with filtering, product detail lookup by SKU, stock management, featured product flags, and discount application across an inventory of furniture items.
   version: 1.0.0
   contact:
     name: Furniture API
     url: https://furniture-api.fly.dev/
 servers:
-  - url: https://furniture-api.fly.dev
-    description: Production
+- url: https://furniture-api.fly.dev
+  description: Production
 tags:
-  - name: Products
-    description: Product catalog, inventory, and merchandising operations
+- name: Products
+  description: Product catalog, inventory, and merchandising operations
 paths:
   /v1/products:
     get:
       summary: List products
-      description: >-
-        Retrieves a paginated list of furniture products with optional filtering
-        by category, price range, wood type, and other product attributes.
+      description: Retrieves a paginated list of furniture products with optional filtering by category, price range, wood type, and other product attributes.
       operationId: listProducts
       tags:
-        - Products
+      - Products
       parameters:
-        - name: category
-          in: query
-          description: Filter products by category.
-          schema:
-            type: string
-        - name: minPrice
-          in: query
-          description: Minimum price filter.
-          schema:
-            type: number
-        - name: maxPrice
-          in: query
-          description: Maximum price filter.
-          schema:
-            type: number
-        - name: woodType
-          in: query
-          description: Filter products by wood type.
-          schema:
-            type: string
-        - name: page
-          in: query
-          description: Page number for pagination.
-          schema:
-            type: integer
-            default: 1
-        - name: limit
-          in: query
-          description: Number of items returned per page.
-          schema:
-            type: integer
-            default: 20
+      - name: category
+        in: query
+        description: Filter products by category.
+        schema:
+          type: string
+      - name: minPrice
+        in: query
+        description: Minimum price filter.
+        schema:
+          type: number
+      - name: maxPrice
+        in: query
+        description: Maximum price filter.
+        schema:
+          type: number
+      - name: woodType
+        in: query
+        description: Filter products by wood type.
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number for pagination.
+        schema:
+          type: integer
+          default: 1
+      - name: limit
+        in: query
+        description: Number of items returned per page.
+        schema:
+          type: integer
+          default: 20
       responses:
         '200':
           description: A paginated list of products.
@@ -75,14 +68,14 @@ paths:
       description: Retrieves the full details for a single product identified by its SKU.
       operationId: getProductBySku
       tags:
-        - Products
+      - Products
       parameters:
-        - name: sku
-          in: path
-          required: true
-          description: The unique stock keeping unit (SKU) for the product.
-          schema:
-            type: string
+      - name: sku
+        in: path
+        required: true
+        description: The unique stock keeping unit (SKU) for the product.
+        schema:
+          type: string
       responses:
         '200':
           description: Product details.
@@ -95,13 +88,10 @@ paths:
   /v1/products/stock:
     patch:
       summary: Update stock levels
-      description: >-
-        Updates inventory levels across multiple products in a single request.
-        Each entry identifies a product by SKU and provides the new stock
-        quantity to set.
+      description: Updates inventory levels across multiple products in a single request. Each entry identifies a product by SKU and provides the new stock quantity to set.
       operationId: updateStock
       tags:
-        - Products
+      - Products
       requestBody:
         required: true
         content:
@@ -121,14 +111,14 @@ paths:
       description: Toggles whether a specific product appears in featured listings.
       operationId: toggleFeatured
       tags:
-        - Products
+      - Products
       parameters:
-        - name: sku
-          in: path
-          required: true
-          description: The SKU of the product to update.
-          schema:
-            type: string
+      - name: sku
+        in: path
+        required: true
+        description: The SKU of the product to update.
+        schema:
+          type: string
       requestBody:
         content:
           application/json:
@@ -146,19 +136,17 @@ paths:
   /v1/products/{sku}/discount:
     patch:
       summary: Apply product discount
-      description: >-
-        Applies a discount to a product, expressed either as a percentage off or
-        as a direct adjusted price.
+      description: Applies a discount to a product, expressed either as a percentage off or as a direct adjusted price.
       operationId: applyDiscount
       tags:
-        - Products
+      - Products
       parameters:
-        - name: sku
-          in: path
-          required: true
-          description: The SKU of the product to discount.
-          schema:
-            type: string
+      - name: sku
+        in: path
+        required: true
+        description: The SKU of the product to discount.
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -172,6 +160,40 @@ paths:
           description: Product not found.
 components:
   schemas:
+    DiscountUpdate:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Percentage discount to apply.
+        price:
+          type: number
+          description: Adjusted price replacing the existing price.
+    StockUpdate:
+      type: object
+      required:
+      - sku
+      - stock
+      properties:
+        sku:
+          type: string
+          description: SKU of the product to update.
+        stock:
+          type: integer
+          description: New stock quantity to set.
+    ProductList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
     Product:
       type: object
       properties:
@@ -206,37 +228,3 @@ components:
         featured:
           type: boolean
           description: Whether the product is featured.
-    ProductList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        page:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
-    StockUpdate:
-      type: object
-      required:
-        - sku
-        - stock
-      properties:
-        sku:
-          type: string
-          description: SKU of the product to update.
-        stock:
-          type: integer
-          description: New stock quantity to set.
-    DiscountUpdate:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Percentage discount to apply.
-        price:
-          type: number
-          description: Adjusted price replacing the existing price.
