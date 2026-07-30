@@ -7,7 +7,19 @@ description: >-
   applications, websites, and online platforms by incorporating detailed furniture listings, product images, and other
   relevant information.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/furniture-api.png
 access: 3rd-Party
 created: '2025-02-24'
 modified: '2026-05-19'
@@ -19,24 +31,18 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: furniture-api:furniture-api
-    name: Furniture API
-    tags:
-      - Furniture
-      - Products
-      - E-Commerce
-    humanURL: https://furniture-api.fly.dev/
-    baseURL: https://furniture-api.fly.dev
-    properties:
-      - type: Documentation
-        url: https://furniture-api.fly.dev/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/openapi/furniture-api-openapi.yml
-    description: >-
-      The Furniture API is a software interface that allows developers to access and integrate information about
-      furniture products and designs into their applications. This API provides a wide range of data related to
-      furniture, such as product descriptions, images, prices, dimensions, and availability.
+- aid: furniture-api:furniture-api-products-api
+  name: Furniture API Products API
+  description: Product catalog, inventory, and merchandising operations
+  humanURL: https://furniture-api.fly.dev/
+  baseURL: https://furniture-api.fly.dev
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/furniture-api-products-api-openapi.yml
+  - type: Documentation
+    url: https://furniture-api.fly.dev/
 common:
   - type: AgenticAccess
     url: agentic-access/furniture-api-agentic-access.yml
