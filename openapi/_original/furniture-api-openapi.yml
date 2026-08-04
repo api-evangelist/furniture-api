@@ -1,0 +1,242 @@
+openapi: 3.0.3
+info:
+  title: Furniture API
+  description: >-
+    The Furniture API is a software interface that allows developers to access
+    and integrate information about furniture products and designs into their
+    applications. It provides product listings with filtering, product detail
+    lookup by SKU, stock management, featured product flags, and discount
+    application across an inventory of furniture items.
+  version: 1.0.0
+  contact:
+    name: Furniture API
+    url: https://furniture-api.fly.dev/
+servers:
+  - url: https://furniture-api.fly.dev
+    description: Production
+tags:
+  - name: Products
+    description: Product catalog, inventory, and merchandising operations
+paths:
+  /v1/products:
+    get:
+      summary: List products
+      description: >-
+        Retrieves a paginated list of furniture products with optional filtering
+        by category, price range, wood type, and other product attributes.
+      operationId: listProducts
+      tags:
+        - Products
+      parameters:
+        - name: category
+          in: query
+          description: Filter products by category.
+          schema:
+            type: string
+        - name: minPrice
+          in: query
+          description: Minimum price filter.
+          schema:
+            type: number
+        - name: maxPrice
+          in: query
+          description: Maximum price filter.
+          schema:
+            type: number
+        - name: woodType
+          in: query
+          description: Filter products by wood type.
+          schema:
+            type: string
+        - name: page
+          in: query
+          description: Page number for pagination.
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          description: Number of items returned per page.
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: A paginated list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+        '429':
+          description: Rate limit exceeded.
+  /v1/products/{sku}:
+    get:
+      summary: Get product by SKU
+      description: Retrieves the full details for a single product identified by its SKU.
+      operationId: getProductBySku
+      tags:
+        - Products
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          description: The unique stock keeping unit (SKU) for the product.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Product details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Product not found.
+  /v1/products/stock:
+    patch:
+      summary: Update stock levels
+      description: >-
+        Updates inventory levels across multiple products in a single request.
+        Each entry identifies a product by SKU and provides the new stock
+        quantity to set.
+      operationId: updateStock
+      tags:
+        - Products
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StockUpdate'
+      responses:
+        '200':
+          description: Stock levels updated.
+        '400':
+          description: Invalid stock update payload.
+  /v1/products/{sku}/featured:
+    patch:
+      summary: Toggle featured status
+      description: Toggles whether a specific product appears in featured listings.
+      operationId: toggleFeatured
+      tags:
+        - Products
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          description: The SKU of the product to update.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                featured:
+                  type: boolean
+                  description: Whether the product should be marked featured.
+      responses:
+        '200':
+          description: Featured status updated.
+        '404':
+          description: Product not found.
+  /v1/products/{sku}/discount:
+    patch:
+      summary: Apply product discount
+      description: >-
+        Applies a discount to a product, expressed either as a percentage off or
+        as a direct adjusted price.
+      operationId: applyDiscount
+      tags:
+        - Products
+      parameters:
+        - name: sku
+          in: path
+          required: true
+          description: The SKU of the product to discount.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscountUpdate'
+      responses:
+        '200':
+          description: Discount applied.
+        '404':
+          description: Product not found.
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        sku:
+          type: string
+          description: Unique product identifier.
+        name:
+          type: string
+          description: Product name.
+        description:
+          type: string
+          description: Detailed product description.
+        category:
+          type: string
+          description: Product category.
+        price:
+          type: number
+          description: Current product price.
+        woodType:
+          type: string
+          description: Type of wood used in the product.
+        dimensions:
+          type: string
+          description: Physical dimensions of the product.
+        image:
+          type: string
+          format: uri
+          description: URL to a product image.
+        stock:
+          type: integer
+          description: Current inventory level.
+        featured:
+          type: boolean
+          description: Whether the product is featured.
+    ProductList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+    StockUpdate:
+      type: object
+      required:
+        - sku
+        - stock
+      properties:
+        sku:
+          type: string
+          description: SKU of the product to update.
+        stock:
+          type: integer
+          description: New stock quantity to set.
+    DiscountUpdate:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Percentage discount to apply.
+        price:
+          type: number
+          description: Adjusted price replacing the existing price.

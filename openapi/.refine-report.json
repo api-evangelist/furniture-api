@@ -1,0 +1,14 @@
+{
+  "provider": "furniture-api",
+  "sources": [
+    "furniture-api-products-api-openapi.yml"
+  ],
+  "outputs": [
+    "furniture-api-products-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
