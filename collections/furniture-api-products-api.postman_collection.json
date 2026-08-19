@@ -1,0 +1,776 @@
+{
+  "item": [
+    {
+      "id": "62263c90-2b41-419b-9800-bb216d302dd1",
+      "name": "Products",
+      "description": {
+        "content": "Product catalog, inventory, and merchandising operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba283aff-5b99-4e32-bd27-e814cf2b1ee2",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {
+              "content": "Retrieves a paginated list of furniture products with optional filtering by category, price range, wood type, and other product attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "category",
+                  "value": "<string>",
+                  "description": "Filter products by category."
+                },
+                {
+                  "disabled": false,
+                  "key": "minPrice",
+                  "value": "<number>",
+                  "description": "Minimum price filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<number>",
+                  "description": "Maximum price filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "woodType",
+                  "value": "<string>",
+                  "description": "Filter products by wood type."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Number of items returned per page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ce8b503-0c40-4ed4-9e75-901a0049235e",
+              "name": "A paginated list of products.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "woodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"sku\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"string\",\n      \"price\": 654.8945764761138,\n      \"woodType\": \"string\",\n      \"dimensions\": \"string\",\n      \"image\": \"https://lRdKL.cfsURlP.NOqWtqZAox.TqF3IKwwdEKgRW+A8g8XBGKx,nBIYRLUOnyz\",\n      \"stock\": 9954,\n      \"featured\": true\n    },\n    {\n      \"sku\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"string\",\n      \"price\": 2780.7461643262486,\n      \"woodType\": \"string\",\n      \"dimensions\": \"string\",\n      \"image\": \"https://yYNjzJqGh.caGLKCXrmnnHZYZu59mLlJGvu.6aiZuJZHzS9GNJ3eB5\",\n      \"stock\": 2005,\n      \"featured\": true\n    }\n  ],\n  \"page\": 2274,\n  \"limit\": 4432,\n  \"total\": 773\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "103a0812-9f21-4530-b6b5-54183ce6894e",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "woodType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b00e196f-403f-44f9-bf3c-1f66dda7aba7",
+          "name": "Get product by SKU",
+          "request": {
+            "name": "Get product by SKU",
+            "description": {
+              "content": "Retrieves the full details for a single product identified by its SKU.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                ":sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) The unique stock keeping unit (SKU) for the product."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfb07f2c-e60a-4979-afd8-95bba23deaf6",
+              "name": "Product details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) The unique stock keeping unit (SKU) for the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sku\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"category\": \"string\",\n  \"price\": 8900.097037831138,\n  \"woodType\": \"string\",\n  \"dimensions\": \"string\",\n  \"image\": \"https://VZqisYAWqoCYVNawbCvNrhJyqdvZOAepz.vdzCb6zmCPaqY.gaKAl1bbepC9oB\",\n  \"stock\": 1316,\n  \"featured\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eab17875-1269-49a0-9220-378894400f5a",
+              "name": "Product not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) The unique stock keeping unit (SKU) for the product."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a54471f5-3c6a-4e87-9b71-8765b0f2a2b7",
+          "name": "Update stock levels",
+          "request": {
+            "name": "Update stock levels",
+            "description": {
+              "content": "Updates inventory levels across multiple products in a single request. Each entry identifies a product by SKU and provides the new stock quantity to set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                "stock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"sku\": \"<string>\",\n    \"stock\": \"<integer>\"\n  },\n  {\n    \"sku\": \"<string>\",\n    \"stock\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "498d60ab-6201-4967-817f-6120179113f0",
+              "name": "Stock levels updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    "stock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"sku\": \"<string>\",\n    \"stock\": \"<integer>\"\n  },\n  {\n    \"sku\": \"<string>\",\n    \"stock\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3be69f19-8322-463c-a701-6414a1e661b7",
+              "name": "Invalid stock update payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    "stock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"sku\": \"<string>\",\n    \"stock\": \"<integer>\"\n  },\n  {\n    \"sku\": \"<string>\",\n    \"stock\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c17e7dab-505d-40c9-976c-1d5a94fc45d5",
+          "name": "Toggle featured status",
+          "request": {
+            "name": "Toggle featured status",
+            "description": {
+              "content": "Toggles whether a specific product appears in featured listings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                ":sku",
+                "featured"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) The SKU of the product to update."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"featured\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "857666ae-f0d6-4381-8881-f2a9350f8740",
+              "name": "Featured status updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":sku",
+                    "featured"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) The SKU of the product to update."
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"featured\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "806df6c6-6670-4429-8f09-b074f2759e42",
+              "name": "Product not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":sku",
+                    "featured"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) The SKU of the product to update."
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"featured\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c18494b2-648a-46df-b40f-d8d8962f5acf",
+          "name": "Apply product discount",
+          "request": {
+            "name": "Apply product discount",
+            "description": {
+              "content": "Applies a discount to a product, expressed either as a percentage off or as a direct adjusted price.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                ":sku",
+                "discount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sku",
+                  "description": "(Required) The SKU of the product to discount."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"percentage\": \"<number>\",\n  \"price\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0580e570-7d7e-4b08-ad15-c3f40ea67710",
+              "name": "Discount applied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":sku",
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) The SKU of the product to discount."
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"percentage\": \"<number>\",\n  \"price\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f019f195-59f4-4433-bc28-c9b2cc9cba8c",
+              "name": "Product not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":sku",
+                    "discount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sku",
+                      "description": "(Required) The SKU of the product to discount."
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"percentage\": \"<number>\",\n  \"price\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://furniture-api.fly.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6b77ecbd-52b7-4f96-a0c4-2ab7a5ad8b10",
+    "name": "Furniture Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Furniture API is a software interface that allows developers to access and integrate information about furniture products and designs into their applications. It provides product listings with filtering, product detail lookup by SKU, stock management, featured product flags, and discount application across an inventory of furniture items.\n\nContact Support:\n Name: Furniture API",
+      "type": "text/plain"
+    }
+  }
+}
