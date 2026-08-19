@@ -29,7 +29,7 @@ tags:
   - Products
   - E-Commerce
 url: https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: furniture-api:furniture-api-products-api
   name: Furniture API Products API
