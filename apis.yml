@@ -26,6 +26,10 @@ modified: '2026-05-19'
 position: Consumer
 tags:
   - Furniture
+  - Product
+  - E-Commerce
+tags_raw:
+  - Furniture
   - Products
   - E-Commerce
 url: https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/apis.yml
@@ -37,6 +41,8 @@ apis:
   humanURL: https://furniture-api.fly.dev/
   baseURL: https://furniture-api.fly.dev
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
