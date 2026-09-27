@@ -50,7 +50,6 @@ apis:
   name: Furniture API Products API
   description: Product catalog, inventory, and merchandising operations
   humanURL: https://furniture-api.fly.dev/
-  baseURL: https://furniture-api.fly.dev
   tags:
   - Product
   tags_raw:
