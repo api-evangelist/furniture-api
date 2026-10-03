@@ -160,6 +160,15 @@ paths:
           description: Product not found.
 components:
   schemas:
+    DiscountUpdate:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Percentage discount to apply.
+        price:
+          type: number
+          description: Adjusted price replacing the existing price.
     StockUpdate:
       type: object
       required:
@@ -219,12 +228,3 @@ components:
         featured:
           type: boolean
           description: Whether the product is featured.
-    DiscountUpdate:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Percentage discount to apply.
-        price:
-          type: number
-          description: Adjusted price replacing the existing price.
