@@ -160,40 +160,6 @@ paths:
           description: Product not found.
 components:
   schemas:
-    DiscountUpdate:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Percentage discount to apply.
-        price:
-          type: number
-          description: Adjusted price replacing the existing price.
-    StockUpdate:
-      type: object
-      required:
-      - sku
-      - stock
-      properties:
-        sku:
-          type: string
-          description: SKU of the product to update.
-        stock:
-          type: integer
-          description: New stock quantity to set.
-    ProductList:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        page:
-          type: integer
-        limit:
-          type: integer
-        total:
-          type: integer
     Product:
       type: object
       properties:
@@ -228,3 +194,37 @@ components:
         featured:
           type: boolean
           description: Whether the product is featured.
+    ProductList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+    DiscountUpdate:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Percentage discount to apply.
+        price:
+          type: number
+          description: Adjusted price replacing the existing price.
+    StockUpdate:
+      type: object
+      required:
+      - sku
+      - stock
+      properties:
+        sku:
+          type: string
+          description: SKU of the product to update.
+        stock:
+          type: integer
+          description: New stock quantity to set.
