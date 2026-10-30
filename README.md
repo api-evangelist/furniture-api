@@ -1,4 +1,4 @@
-# Furniture API (furniture-api)
+# Furniture API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,53 +66,107 @@
 
 Furniture API is a service that provides developers with access to a wide range of furniture data and resources through a simple and easy-to-use interface. This API allows users to retrieve information on various types of furniture, including furniture models, prices, availability, and more. Developers can use this data to enhance their applications, websites, and online platforms by incorporating detailed furniture listings, product images, and other relevant information.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/apis.yml)
+**Areas:** Furniture · Product · E-Commerce
 
-## Scope
+## Furniture API on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Furniture API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/furniture-api/](https://apis.io/providers/furniture-api/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-- Furniture
-- Products
-- E-Commerce
+- [Furniture API Products API](https://apis.io/apis/furniture-api/furniture-api-products-api/) — Product catalog, inventory, and merchandising operations
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Furniture API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Furniture API is a software interface that allows developers to access and integrate information about furniture products and designs into their applications. This API provides a wide range of data related to furniture, such as product descriptions, images, prices, dimensions, and availability.
+- [Furniture Api Agentic Access](https://apis.io/agentic-access/furniture-api/furniture-api-agentic-access/)
 
-- **Human URL:** [https://furniture-api.fly.dev/](https://furniture-api.fly.dev/)
-- **Base URL:** `https://furniture-api.fly.dev`
+#### Collections (2)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Furniture
-- Products
-- E-Commerce
+- [Furniture API](https://apis.io/collections/furniture-api/open-furniture-api/)
+- [Furniture Products API](https://apis.io/collections/furniture-api/open-furniture-api-products-api/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://furniture-api.fly.dev/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/furniture-api/refs/heads/main/openapi/furniture-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/furniture-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/furniture-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-## Common Properties
+- [Furniture Api Plans Pricing](https://apis.io/plans/furniture-api/furniture-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Furniture Api Rate Limits](https://apis.io/rate-limits/furniture-api/furniture-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Furniture Api Finops](https://apis.io/finops/furniture-api/furniture-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://furniture-api.fly.dev/)
 - [Documentation](https://furniture-api.fly.dev/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 16.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 42.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 4.8 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 0.0** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/furniture-api/](https://apis.io/providers/furniture-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Furniture API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/furniture-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
